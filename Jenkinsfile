@@ -16,7 +16,7 @@ pipeline{
       }
       steps{
         script{
-          docker.image('jenkins-docker-maven:3.6.1-jdk8').inside("--network 1-cd-platform_cd-in-practice -v /root/.m2:/root/.m2") {
+          docker.image('jenkins-docker-maven:3.6.1-jdk8').inside("--network 2-cd-platform_cd-in-practice -v /root/.m2:/root/.m2") {
               sh """
                 mvn versions:set -DnewVersion=${APP_VERSION}
                 mvn clean test package install -U
@@ -29,7 +29,7 @@ pipeline{
      stage("deploy app"){
        steps{
          script{
-           docker.image('williamyeh/ansible:centos7').inside("--network 1-cd-platform_cd-in-practice") {
+           docker.image('williamyeh/ansible:centos7').inside("--network 2-cd-platform_cd-in-practice") {
              checkout([$class: 'GitSCM', branches: [[name: "master"]], doGenerateSubmoduleConfigurations: false,
                        extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: "env-conf"]], submoduleCfg: [],
                        userRemoteConfigs: [[url: "https://github.com/cd-in-practice/1-env-conf.git"]]])
