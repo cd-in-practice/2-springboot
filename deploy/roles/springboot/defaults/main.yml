@@ -1,0 +1,19 @@
+---
+app_name: "{{springboot.app_name}}"
+app_home_folder: "/app/{{springboot.app_name}}"
+app_bin_folder: "{{app_home_folder}}/bin"
+app_logs_folder: "{{app_home_folder}}/logs"
+app_exe_jar_name: "{{springboot.app_name}}.jar"
+app_service_name: "{{springboot.app_name}}"
+app_pid_name: "{{springboot.app_name}}.pid"
+app_run_user: "{{ appuser.name }}"
+app_run_group: "{{ appuser.group }}"
+app_log_level: INFO
+artifactory_basic_auth_header: "Basic YXBwOnBhc3N3b3Jk"
+app_artifact:
+  url: "http://artifactory:8081/artifactory/pro-repo/codes/showme/springboot-demo/{{app_version}}/springboot-demo-{{app_version}}.jar"
+  username: "app"
+  password: "password"
+app_config:
+  server:
+    port: 7896
