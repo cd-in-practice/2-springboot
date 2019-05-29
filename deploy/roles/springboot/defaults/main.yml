@@ -1,11 +1,11 @@
 ---
-app_name: "{{springboot.app_name}}"
-app_home_folder: "/app/{{springboot.app_name}}"
+app_name: "{{app_springboot_config.app_name}}"
+app_home_folder: "/app/{{app_springboot_config.app_name}}"
 app_bin_folder: "{{app_home_folder}}/bin"
 app_logs_folder: "{{app_home_folder}}/logs"
-app_exe_jar_name: "{{springboot.app_name}}.jar"
-app_service_name: "{{springboot.app_name}}"
-app_pid_name: "{{springboot.app_name}}.pid"
+app_exe_jar_name: "{{app_springboot_config.app_name}}.jar"
+app_service_name: "{{app_springboot_config.app_name}}"
+app_pid_name: "{{app_springboot_config.app_name}}.pid"
 app_run_user: "{{ appuser.name }}"
 app_run_group: "{{ appuser.group }}"
 app_log_level: INFO
