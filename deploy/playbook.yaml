@@ -2,5 +2,6 @@
 - hosts: "springboot"
   become: yes
   roles:
+    - ansible-role-firewall
     - {"role": "ansible-role-java", "java_home": "{{JAVA_HOME}}"}
     - springboot
